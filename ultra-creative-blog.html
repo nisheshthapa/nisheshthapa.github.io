@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishesh's Creative Universe 🌟</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #a855f7;
+            --pink: #ec4899;
+            --blue: #3b82f6;
+            --orange: #fb923c;
+            --green: #34d399;
+            --yellow: #fbbf24;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Confetti canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Floating stickers */
+        .sticker {
+            position: fixed;
+            font-size: 3rem;
+            animation: floatSticker 15s infinite ease-in-out;
+            z-index: 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .sticker:hover {
+            transform: scale(1.5) rotate(20deg);
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+        }
+
+        .sticker-1 { top: 15%; left: 5%; animation-delay: 0s; }
+        .sticker-2 { top: 25%; right: 8%; animation-delay: 2s; }
+        .sticker-3 { top: 45%; left: 10%; animation-delay: 4s; }
+        .sticker-4 { top: 65%; right: 12%; animation-delay: 6s; }
+        .sticker-5 { top: 80%; left: 15%; animation-delay: 8s; }
+        .sticker-6 { top: 35%; right: 5%; animation-delay: 3s; }
+
+        @keyframes floatSticker {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(10deg); }
+            50% { transform: translate(0, -40px) rotate(-10deg); }
+            75% { transform: translate(-20px, -20px) rotate(5deg); }
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 1.5rem 3rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Baloo 2', cursive;
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--purple), var(--pink), var(--orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-photos {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 1rem;
+            padding-bottom: 3rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: rotate(-3deg);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .polaroid:nth-child(2) { transform: rotate(3deg); }
+        .polaroid:nth-child(3) { transform: rotate(-5deg); }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.1);
+            z-index: 10;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .polaroid-img {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .polaroid-caption {
+            text-align: center;
+            font-family: 'Baloo 2', cursive;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            animation: bounce 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-badge:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .hero h1 {
+            font-family: 'Baloo 2', cursive;
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 2rem;
+            color: #1e293b;
+            text-shadow: 4px 4px 0 rgba(251, 191, 36, 0.3);
+            animation: wiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg); }
+            75% { transform: rotate(2deg); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.1) rotate(-3deg);
+            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.6);
+        }
+
+        .hero-cta:active {
+            transform: scale(0.95);
+        }
+
+        /* Sticker board section */
+        .sticker-board {
+            padding: 4rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .board-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e293b;
+            text-shadow: 3px 3px 0 rgba(251, 191, 36, 0.3);
+        }
+
+        .featured-collage {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: visible;
+        }
+
+        .collage-sticker {
+            position: absolute;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .collage-sticker:hover {
+            transform: scale(1.4) rotate(20deg);
+        }
+
+        .cs-1 { top: -20px; left: 20px; transform: rotate(-15deg); }
+        .cs-2 { top: -30px; right: 50px; transform: rotate(10deg); }
+        .cs-3 { bottom: -20px; left: 40px; transform: rotate(-20deg); }
+        .cs-4 { bottom: -25px; right: 30px; transform: rotate(15deg); }
+
+        .featured-content h2 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .featured-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .read-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .read-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Photo grid posts */
+        .posts-section {
+            padding: 4rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 25px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .post-card:hover {
+            transform: translateY(-15px) rotate(3deg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .post-photo {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-card:nth-child(1) .post-photo { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+        .post-card:nth-child(2) .post-photo { background: linear-gradient(135deg, #ec4899, #be185d); }
+        .post-card:nth-child(3) .post-photo { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .post-card:nth-child(4) .post-photo { background: linear-gradient(135deg, #34d399, #059669); }
+        .post-card:nth-child(5) .post-photo { background: linear-gradient(135deg, #a855f7, #7e22ce); }
+        .post-card:nth-child(6) .post-photo { background: linear-gradient(135deg, #fb923c, #ea580c); }
+
+        .post-sticker {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            transform: rotate(15deg);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .post-content {
+            padding: 2rem;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .post-card h3 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .post-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--purple);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--purple);
+            color: white;
+            transform: scale(1.15);
+        }
+
+        /* About with photo collage */
+        .about {
+            padding: 5rem 3rem;
+            background: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-photo {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--orange), var(--yellow));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-photo:nth-child(2) { background: linear-gradient(135deg, var(--pink), var(--purple)); }
+        .about-photo:nth-child(3) { background: linear-gradient(135deg, var(--blue), var(--purple)); }
+        .about-photo:nth-child(4) { background: linear-gradient(135deg, var(--green), var(--blue)); }
+
+        .about-photo:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .about-text h2 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: #1e293b;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 5rem 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-box {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .newsletter-stickers {
+            position: absolute;
+            font-size: 3rem;
+        }
+
+        .ns-1 { top: -25px; left: 30px; transform: rotate(-20deg); }
+        .ns-2 { top: -30px; right: 40px; transform: rotate(15deg); }
+        .ns-3 { bottom: -20px; left: 50px; transform: rotate(-15deg); }
+        .ns-4 { bottom: -25px; right: 45px; transform: rotate(20deg); }
+
+        .newsletter h2 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .newsletter p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 2.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1.3rem 2rem;
+            border: 3px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--purple);
+            transform: scale(1.03);
+            box-shadow: 0 5px 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .newsletter-form button {
+            padding: 1.3rem 2.5rem;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 3rem 2rem;
+            background: #1e293b;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-section h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            transform: translateX(5px);
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero, .sticker-board, .posts-section, .about, .newsletter, footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .sticker {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Floating Stickers -->
+    <div class="sticker sticker-1" onclick="playSound('pop')">🎨</div>
+    <div class="sticker sticker-2" onclick="playSound('pop')">💡</div>
+    <div class="sticker sticker-3" onclick="playSound('pop')">🚀</div>
+    <div class="sticker sticker-4" onclick="playSound('pop')">⭐</div>
+    <div class="sticker sticker-5" onclick="playSound('pop')">💼</div>
+    <div class="sticker sticker-6" onclick="playSound('pop')">✨</div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo" onclick="playSound('whoosh')">✨ Nishesh's Universe</div>
+            <nav>
+                <ul>
+                    <li><a href="#home" onclick="playSound('click')">🏠 Home</a></li>
+                    <li><a href="#posts" onclick="playSound('click')">📚 Posts</a></li>
+                    <li><a href="#about" onclick="playSound('click')">👤 About</a></li>
+                    <li><a href="#subscribe" onclick="playSound('click')">✉️ Subscribe</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-photos">
+            <div class="polaroid" onclick="playSound('camera')">
+                <div class="polaroid-img">💼</div>
+                <div class="polaroid-caption">Business Vibes</div>
+            </div>
+            <div class="polaroid" onclick="playSound('camera')">
+                <div class="polaroid-img">🎓</div>
+                <div class="polaroid-caption">Student Life</div>
+            </div>
+            <div class="polaroid" onclick="playSound('camera')">
+                <div class="polaroid-img">🚀</div>
+                <div class="polaroid-caption">Big Dreams</div>
+            </div>
+        </div>
+
+        <div class="hero-badge" onclick="playSound('bell')">
+            <span>🎯</span>
+            <span>Welcome to My Creative Space!</span>
+        </div>
+        <h1>Ideas, Stories<br>& Adventures! 🌟</h1>
+        <p class="hero-subtitle">Hi! I'm Nishesh — Future CEO & Creative Mind ✨</p>
+        <a href="#posts" class="hero-cta" onclick="playSound('success')">
+            <span>Explore My World</span>
+            <span>🚀</span>
+        </a>
+    </section>
+
+    <!-- Featured with Stickers -->
+    <section class="sticker-board">
+        <h2 class="board-title">✨ Featured Story ✨</h2>
+        <div class="featured-collage">
+            <div class="collage-sticker cs-1" onclick="playSound('pop')">⭐</div>
+            <div class="collage-sticker cs-2" onclick="playSound('pop')">🎯</div>
+            <div class="collage-sticker cs-3" onclick="playSound('pop')">💡</div>
+            <div class="collage-sticker cs-4" onclick="playSound('pop')">🚀</div>
+
+            <div class="featured-content">
+                <h2>The Art of Building Something From Nothing 💎</h2>
+                <p>
+                    Every great business starts as an idea—a spark that won't fade! ✨ Join me as I explore 
+                    how to turn dreams into reality, step by step. From brainstorming to building, 
+                    this is your complete guide to making it happen! 🚀
+                </p>
+                <a href="#" class="read-btn" onclick="playSound('success')">
+                    <span>Read the Story</span>
+                    <span>📖</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posts with Photos -->
+    <section class="posts-section" id="posts">
+        <h2 class="board-title">📚 My Latest Posts</h2>
+        <div class="posts-grid">
+            <article class="post-card" onclick="playSound('click')">
+                <div class="post-photo">
+                    🧠
+                    <div class="post-sticker">⭐</div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">📅 Feb 10, 2026 • ⏱️ 6 min</div>
+                    <h3>Why Entrepreneurs Need Psychology 🧠</h3>
+                    <p>
+                        Understanding people is your superpower! Learn how psychology shapes every 
+                        business decision you make. 💡
+                    </p>
+                    <div class="post-tags">
+                        <span class="tag">Psychology</span>
+                        <span class="tag">Business</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card" onclick="playSound('click')">
+                <div class="post-photo">
+                    🎨
+                    <div class="post-sticker">💖</div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">📅 Feb 5, 2026 • ⏱️ 8 min</div>
+                    <h3>Personal Branding Magic ✨</h3>
+                    <p>
+                        Your brand is your story! Discover how to stand out and be unforgettable 
+                        in 2026. 🌟
+                    </p>
+                    <div class="post-tags">
+                        <span class="tag">Branding</span>
+                        <span class="tag">Marketing</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card" onclick="playSound('click')">
+                <div class="post-photo">
+                    👑
+                    <div class="post-sticker">🔥</div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">📅 Jan 28, 2026 • ⏱️ 5 min</div>
+                    <h3>Leadership Without Authority 👑</h3>
+                    <p>
+                        You don't need a title to lead! Learn how to influence and inspire 
+                        from day one. 💪
+                    </p>
+                    <div class="post-tags">
+                        <span class="tag">Leadership</span>
+                        <span class="tag">Career</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card" onclick="playSound('click')">
+                <div class="post-photo">
+                    📖
+                    <div class="post-sticker">✨</div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">📅 Jan 20, 2026 • ⏱️ 7 min</div>
+                    <h3>Storytelling as Strategy 📖</h3>
+                    <p>
+                        Stories sell, inspire, and connect! Master the art of compelling 
+                        narratives. 🎭
+                    </p>
+                    <div class="post-tags">
+                        <span class="tag">Writing</span>
+                        <span class="tag">Strategy</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card" onclick="playSound('click')">
+                <div class="post-photo">
+                    🌟
+                    <div class="post-sticker">💫</div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">📅 Jan 15, 2026 • ⏱️ 6 min</div>
+                    <h3>Purpose Beyond Profit 🌟</h3>
+                    <p>
+                        Money is important, but purpose is everything! Build businesses 
+                        that matter. ❤️
+                    </p>
+                    <div class="post-tags">
+                        <span class="tag">Purpose</span>
+                        <span class="tag">Impact</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post-card" onclick="playSound('click')">
+                <div class="post-photo">
+                    🎓
+                    <div class="post-sticker">🚀</div>
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">📅 Jan 8, 2026 • ⏱️ 9 min</div>
+                    <h3>From Student to CEO 🎓</h3>
+                    <p>
+                        Your roadmap to success! From classroom to boardroom, here's 
+                        how to make it happen. 🏆
+                    </p>
+                    <div class="post-tags">
+                        <span class="tag">Career</span>
+                        <span class="tag">Education</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- About with Photo Grid -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-photos">
+                <div class="about-photo" onclick="playSound('camera')">💼</div>
+                <div class="about-photo" onclick="playSound('camera')">🎨</div>
+                <div class="about-photo" onclick="playSound('camera')">📚</div>
+                <div class="about-photo" onclick="playSound('camera')">🚀</div>
+            </div>
+            <div class="about-text">
+                <h2>Hey, I'm Nishesh! 👋</h2>
+                <p>
+                    I'm a BBA student in Boston with HUGE dreams of becoming a CEO! 🌟 This is my 
+                    creative playground where business meets imagination.
+                </p>
+                <p>
+                    I love exploring psychology, branding, storytelling, and everything that makes 
+                    businesses tick. When I'm not studying, I'm writing, creating, and dreaming up 
+                    the next big idea! ✨
+                </p>
+                <p>
+                    Join me on this adventure as we learn, grow, and build amazing things together! 🚀
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="subscribe">
+        <div class="newsletter-box">
+            <div class="newsletter-stickers ns-1" onclick="playSound('pop')">✉️</div>
+            <div class="newsletter-stickers ns-2" onclick="playSound('pop')">🎉</div>
+            <div class="newsletter-stickers ns-3" onclick="playSound('pop')">💌</div>
+            <div class="newsletter-stickers ns-4" onclick="playSound('pop')">⭐</div>
+
+            <h2>Join the Adventure! 🚀</h2>
+            <p>Get awesome content delivered to your inbox! No spam, just fun stuff! 🎉</p>
+            <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit">Subscribe! ✨</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Nishesh's Universe ✨</h3>
+                <p>
+                    Building dreams, one idea at a time! BBA student, creator, and future CEO! 🚀
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>🗺️ Explore</h4>
+                <ul>
+                    <li><a href="#home" onclick="playSound('click')">🏠 Home</a></li>
+                    <li><a href="#posts" onclick="playSound('click')">📚 All Posts</a></li>
+                    <li><a href="#about" onclick="playSound('click')">👤 About Me</a></li>
+                    <li><a href="#" onclick="playSound('click')">📁 Archive</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>💬 Connect</h4>
+                <ul>
+                    <li><a href="mailto:contact@nisheshthapa.com.np" onclick="playSound('click')">✉️ Email</a></li>
+                    <li><a href="#" onclick="playSound('click')">💼 LinkedIn</a></li>
+                    <li><a href="#" onclick="playSound('click')">🐦 Twitter</a></li>
+                    <li><a href="#" onclick="playSound('click')">📸 Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Made with 💜 by Nishesh © 2026 • Let's create magic together! ✨
+        </div>
+    </footer>
+
+    <script>
+        // Sound effects using Web Audio API
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            switch(type) {
+                case 'click':
+                    oscillator.frequency.value = 800;
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.1);
+                    break;
+                case 'pop':
+                    oscillator.frequency.value = 1200;
+                    gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.15);
+                    break;
+                case 'success':
+                    oscillator.frequency.value = 523.25;
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.frequency.exponentialRampToValueAtTime(783.99, audioContext.currentTime + 0.2);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                    oscillator.stop(audioContext.currentTime + 0.3);
+                    break;
+                case 'whoosh':
+                    oscillator.frequency.value = 200;
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    oscillator.frequency.exponentialRampToValueAtTime(800, audioContext.currentTime + 0.2);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.3);
+                    break;
+                case 'camera':
+                    oscillator.frequency.value = 600;
+                    gainNode.gain.setValueAtTime(0.4, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.05);
+                    break;
+                case 'bell':
+                    oscillator.frequency.value = 1000;
+                    gainNode.gain.setValueAtTime(0.4, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.5);
+                    break;
+            }
+        }
+
+        // Confetti effect
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const confetti = [];
+        const confettiCount = 50;
+        const colors = ['#a855f7', '#ec4899', '#3b82f6', '#34d399', '#fbbf24', '#fb923c'];
+
+        class Confetto {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 8 + 4;
+                this.speedY = Math.random() * 3 + 2;
+                this.speedX = Math.random() * 2 - 1;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 10 - 5;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.rotation += this.rotationSpeed;
+
+                if (this.y > canvas.height) {
+                    this.y = -20;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < confettiCount; i++) {
+            confetti.push(new Confetto());
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            confetti.forEach(piece => {
+                piece.update();
+                piece.draw();
+            });
+            requestAnimationFrame(animateConfetti);
+        }
+
+        animateConfetti();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Newsletter form with confetti burst
+        function handleSubscribe(e) {
+            e.preventDefault();
+            playSound('success');
+            
+            // Create burst of confetti
+            for (let i = 0; i < 30; i++) {
+                confetti.push(new Confetto());
+            }
+            
+            setTimeout(() => {
+                alert('🎉 Awesome! Welcome to the adventure! Check your email! ✨');
+            }, 300);
+        }
+
+        // Add stagger animation to post cards
+        const cards = document.querySelectorAll('.post-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animation = 'fadeIn 0.6s ease forwards';
+                    }, index * 100);
+                }
+            });
+        });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+
+        // Add click sound to all clickable elements
+        document.querySelectorAll('button, .tag').forEach(el => {
+            el.addEventListener('click', () => playSound('click'));
+        });
+    </script>
+</body>
+</html>
