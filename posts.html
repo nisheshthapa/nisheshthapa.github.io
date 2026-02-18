@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts | Nishesh's Creative Space ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating shapes -->
+    <div class="floating-shape shape-1">💡</div>
+    <div class="floating-shape shape-2">🚀</div>
+    <div class="floating-shape shape-3">⭐</div>
+    <div class="floating-shape shape-4">💼</div>
+    <div class="floating-shape shape-5">✨</div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">✨ Nishesh</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">🏠 Home</a></li>
+                    <li><a href="posts.html" class="active">📚 Posts</a></li>
+                    <li><a href="about.html">👤 About</a></li>
+                    <li><a href="archive.html">📜 Archive</a></li>
+                    <li><a href="subscribe.html">✉️ Subscribe</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>📚 My Blog Posts</h1>
+        <p>Explore ideas, insights, and stories about business, creativity, and growth</p>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured">
+        <h2 class="section-title">
+            <span class="icon">⭐</span>
+            <span>Featured Story</span>
+        </h2>
+        <div class="featured-card">
+            <div class="featured-meta">
+                <span>📅 Feb 14, 2026</span>
+                <span>•</span>
+                <span>⏱️ 8 min read</span>
+            </div>
+            <h2>The Art of Building Something From Nothing 💎</h2>
+            <p>
+                Every great business starts as an idea—a spark in someone's mind that refuses to fade. 
+                But the journey from concept to reality is where dreams either flourish or falter. 
+                In this deep dive, I explore the systematic approach to transforming vision into viable 
+                ventures, drawing from both cutting-edge research and real-world observations.
+            </p>
+            <a href="blog.html?post=building-from-nothing" class="read-more">
+                <span>Continue Reading</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-grid" id="posts">
+        <h2 class="section-title">
+            <span class="icon">📚</span>
+            <span>Recent Posts</span>
+        </h2>
+
+        <!-- Category Filters -->
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All Posts</button>
+            <button class="filter-btn" data-category="business">💼 Business</button>
+            <button class="filter-btn" data-category="psychology">🧠 Psychology</button>
+            <button class="filter-btn" data-category="leadership">👑 Leadership</button>
+            <button class="filter-btn" data-category="creativity">🎨 Creativity</button>
+            <button class="filter-btn" data-category="personal-growth">🌱 Personal Growth</button>
+        </div>
+
+        <div class="posts-grid">
+            <!-- Post 1: Psychology -->
+            <article class="post-card" data-number="01" data-category="psychology business">
+                <div class="post-icon">🧠</div>
+                <div class="post-meta">Feb 10, 2026 • 6 min read</div>
+                <h3>Why Entrepreneurs Need Psychology</h3>
+                <p>
+                    Understanding human behavior is the secret weapon of successful business leaders. 
+                    From marketing to management, psychology shapes everything.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Psychology</span>
+                    <span class="tag">Business</span>
+                </div>
+                <a href="blog.html?post=psychology-for-entrepreneurs" class="read-post-btn">Read More →</a>
+            </article>
+
+            <!-- Post 2: Branding -->
+            <article class="post-card" data-number="02" data-category="business creativity">
+                <div class="post-icon">🎨</div>
+                <div class="post-meta">Feb 5, 2026 • 8 min read</div>
+                <h3>Personal Branding in 2026</h3>
+                <p>
+                    Your brand isn't what you say—it's what people remember. In a saturated world, 
+                    authenticity is the ultimate currency.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Branding</span>
+                    <span class="tag">Marketing</span>
+                </div>
+                <a href="blog.html?post=personal-branding-2026" class="read-post-btn">Read More →</a>
+            </article>
+
+            <!-- Post 3: Leadership -->
+            <article class="post-card" data-number="03" data-category="leadership">
+                <div class="post-icon">👑</div>
+                <div class="post-meta">Jan 28, 2026 • 5 min read</div>
+                <h3>Leadership Without Authority</h3>
+                <p>
+                    True leadership comes from influence, not titles. The best CEOs started building 
+                    these skills long before their first executive role.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Leadership</span>
+                    <span class="tag">Career</span>
+                </div>
+                <a href="blog.html?post=leadership-without-authority" class="read-post-btn">Read More →</a>
+            </article>
+
+            <!-- Post 4: Storytelling -->
+            <article class="post-card" data-number="04" data-category="creativity business">
+                <div class="post-icon">📖</div>
+                <div class="post-meta">Jan 20, 2026 • 7 min read</div>
+                <h3>Storytelling as Strategy</h3>
+                <p>
+                    Compelling narratives drive sales, inspire teams, and build communities. 
+                    Story is the currency of connection.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Writing</span>
+                    <span class="tag">Strategy</span>
+                </div>
+                <a href="blog.html?post=storytelling-strategy" class="read-post-btn">Read More →</a>
+            </article>
+
+            <!-- Post 5: Purpose -->
+            <article class="post-card" data-number="05" data-category="personal-growth">
+                <div class="post-icon">🌟</div>
+                <div class="post-meta">Jan 15, 2026 • 6 min read</div>
+                <h3>Purpose Beyond Profit</h3>
+                <p>
+                    Money matters, but purpose drives longevity. The most successful ventures 
+                    solve real problems for real people.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Purpose</span>
+                    <span class="tag">Impact</span>
+                </div>
+                <a href="blog.html?post=purpose-beyond-profit" class="read-post-btn">Read More →</a>
+            </article>
+
+            <!-- Post 6: Career -->
+            <article class="post-card" data-number="06" data-category="personal-growth business">
+                <div class="post-icon">🎓</div>
+                <div class="post-meta">Jan 8, 2026 • 9 min read</div>
+                <h3>From Student to CEO</h3>
+                <p>
+                    A practical roadmap for business students: essential skills, critical mindsets, 
+                    and the path from classroom to boardroom.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Career</span>
+                    <span class="tag">Education</span>
+                </div>
+                <a href="blog.html?post=student-to-ceo" class="read-post-btn">Read More →</a>
+            </article>
+
+            <!-- Post 7: Innovation -->
+            <article class="post-card" data-number="07" data-category="business creativity">
+                <div class="post-icon">💡</div>
+                <div class="post-meta">Jan 2, 2026 • 7 min read</div>
+                <h3>The Innovation Mindset</h3>
+                <p>
+                    Innovation isn't about having crazy ideas—it's about systematically solving problems 
+                    in new ways. Learn the framework.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Innovation</span>
+                    <span class="tag">Strategy</span>
+                </div>
+                <a href="blog.html?post=innovation-mindset" class="read-post-btn">Read More →</a>
+            </article>
+
+            <!-- Post 8: Team Building -->
+            <article class="post-card" data-number="08" data-category="leadership psychology">
+                <div class="post-icon">👥</div>
+                <div class="post-meta">Dec 28, 2025 • 6 min read</div>
+                <h3>Building High-Performance Teams</h3>
+                <p>
+                    Great companies are built by great teams. Discover the psychology and practices 
+                    behind exceptional team dynamics.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Teams</span>
+                    <span class="tag">Culture</span>
+                </div>
+                <a href="blog.html?post=high-performance-teams" class="read-post-btn">Read More →</a>
+            </article>
+
+            <!-- Post 9: Decision Making -->
+            <article class="post-card" data-number="09" data-category="business psychology">
+                <div class="post-icon">🎯</div>
+                <div class="post-meta">Dec 20, 2025 • 8 min read</div>
+                <h3>The Art of Strategic Decisions</h3>
+                <p>
+                    Every decision shapes your future. Learn frameworks for making better choices 
+                    under uncertainty and pressure.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Strategy</span>
+                    <span class="tag">Decision Making</span>
+                </div>
+                <a href="blog.html?post=strategic-decisions" class="read-post-btn">Read More →</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter-cta">
+        <div class="newsletter-box">
+            <h2>Never Miss a Post! 📬</h2>
+            <p>Get new articles delivered straight to your inbox</p>
+            <a href="subscribe.html" class="cta-button">
+                <span>Subscribe Now</span>
+                <span>✨</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Nishesh's Space ✨</h3>
+                <p>
+                    Building meaningful ventures, one idea at a time. BBA student, writer, 
+                    and aspiring entrepreneur.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">🏠 Home</a></li>
+                    <li><a href="posts.html">📚 All Posts</a></li>
+                    <li><a href="about.html">👤 About</a></li>
+                    <li><a href="archive.html">📜 Archive</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://github.com/nisheshthapa" target="_blank">💻 GitHub</a></li>
+                    <li><a href="https://www.youtube.com/@nishesh27" target="_blank">📺 YouTube</a></li>
+                    <li><a href="https://orcid.org/0009-0001-1823-8370" target="_blank">🔬 ORCID</a></li>
+                    <li><a href="https://scholar.google.com/citations?user=yHmrhPgAAAAJ&hl=en" target="_blank">📚 Google Scholar</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Made with 💜 by Nishesh © 2026
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Category filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const postCards = document.querySelectorAll('.post-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter posts
+                postCards.forEach(card => {
+                    if (category === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        if (card.dataset.category.includes(category)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
