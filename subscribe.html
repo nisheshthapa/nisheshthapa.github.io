@@ -202,11 +202,49 @@
 
     <script src="script.js"></script>
     <script>
-        // Form submission
-        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+        const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzsJPd_pClOvCsjpiWj8d_jIKxbnUVgxJiVFjH28tKZakzE-QUEswx623tk1FyBWI1O/exec';
+
+        document.getElementById('subscribeForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('🎉 Thank you for subscribing! Check your email to confirm your subscription. ✨');
-            this.reset();
+
+            const btn = this.querySelector('.submit-btn');
+            btn.innerHTML = '<span>Subscribing...</span><span>⏳</span>';
+            btn.disabled = true;
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const interests = [...document.querySelectorAll('.checkbox-group input:checked')]
+                .map(cb => cb.value).join(', ');
+
+            try {
+                await fetch(SHEET_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, interests })
+                });
+
+                btn.innerHTML = '<span>Subscribed! 🎉</span><span>✅</span>';
+                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => createConfetti(), i * 30);
+                }
+                this.reset();
+                setTimeout(() => {
+                    btn.innerHTML = '<span>Subscribe Now!</span><span>🚀</span>';
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 4000);
+
+            } catch (error) {
+                btn.innerHTML = '<span>Try Again</span><span>❌</span>';
+                btn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+                btn.disabled = false;
+                setTimeout(() => {
+                    btn.innerHTML = '<span>Subscribe Now!</span><span>🚀</span>';
+                    btn.style.background = '';
+                }, 3000);
+            }
         });
     </script>
 </body>
